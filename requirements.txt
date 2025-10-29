@@ -1,0 +1,14 @@
+# ROMA Droid Echo Dependencies
+
+# Telegram Bot
+python-telegram-bot>=20.0
+
+# HTTP Client
+aiohttp>=3.8.0
+
+# Environment Variables
+python-dotenv>=1.0.0
+
+# Utilities
+requests>=2.28.0
+urllib3>=1.26.0
