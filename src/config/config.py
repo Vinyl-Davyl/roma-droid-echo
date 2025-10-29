@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-from utils.logger import setup_logger
+from src.utils.logger import setup_logger
 
 # Setup logger
 logger = setup_logger(__name__)
@@ -15,7 +15,7 @@ class Config:
     TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "7564176119:AAH04VEHRhzoV9AAQs0wFK-RjQ1OSCcA0Dw")
     
     # Fireworks API Key
-    FIREWORKS_API_KEY = os.getenv("FIREWORKS_API_KEY", "fw_3ZXBVfbKjcxvSLm83kGChdmU")
+    FIREWORKS_API_KEY = os.getenv("FIREWORKS_API_KEY")
     
     # Fireworks API URL
     FIREWORKS_API_URL = "https://api.fireworks.ai/inference/v1/completions"
