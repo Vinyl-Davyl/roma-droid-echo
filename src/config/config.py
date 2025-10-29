@@ -21,7 +21,7 @@ class Config:
     FIREWORKS_API_URL = "https://api.fireworks.ai/inference/v1/completions"
     
     # Default AI model
-    DEFAULT_MODEL = "accounts/fireworks/models/mixtral-8x7b-instruct"
+    DEFAULT_MODEL = "accounts/sentientfoundation-serverless/models/dobby-mini-unhinged-plus-llama-3-1-8b"
     
     # Logging level
     LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
