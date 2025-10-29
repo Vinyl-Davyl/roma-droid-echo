@@ -1,3 +1,4 @@
+
 import os
 import aiohttp
 import json
@@ -13,13 +14,15 @@ async def get_api_key():
     """Get Fireworks API key from environment variables"""
     api_key = os.getenv("FIREWORKS_API_KEY")
     if not api_key:
-        logger.warning("FIREWORKS_API_KEY not found in environment variables. Using fallback key.")
-        api_key = "fw_3ZXBVfbKjcxvSLm83kGChdmU"  # Fallback key (not recommended for production)
+        logger.error("FIREWORKS_API_KEY not found in environment variables. AI services will not function.")
+        return None
     return api_key
 
-async def get_ai_response(query, model="accounts/fireworks/models/mixtral-8x7b-instruct"):
+async def get_ai_response(query, model="accounts/sentientfoundation-serverless/models/dobby-mini-unhinged-plus-llama-3-1-8b"):
     """Get AI response from Fireworks API"""
     api_key = await get_api_key()
+    if not api_key:
+        return "AI services are not configured. Please set FIREWORKS_API_KEY."
     
     # Enhance the prompt with ROMA context
     enhanced_prompt = (
@@ -53,12 +56,15 @@ async def get_ai_response(query, model="accounts/fireworks/models/mixtral-8x7b-i
                     logger.error(f"API error: {response.status}, {error_text}")
                     return "Sorry, I'm having trouble connecting to my AI services right now. Please try again later."
     except Exception as e:
-        logger.error(f"Error calling Fireworks API: {e}")
+        logger.exception(f"Error calling Fireworks API: {e}")
+        return "Sorry, I encountereded an error while processing your request. Please try again later."
         return "Sorry, I encountered an error while processing your request. Please try again later."
 
 async def summarize_content(content, model="accounts/fireworks/models/mixtral-8x7b-instruct"):
     """Summarize content using Fireworks API"""
     api_key = await get_api_key()
+    if not api_key:
+        return "AI services are not configured. Please set FIREWORKS_API_KEY."
     
     # Check if content is a URL or text
     is_url = content.startswith("http") and " " not in content
@@ -92,5 +98,6 @@ async def summarize_content(content, model="accounts/fireworks/models/mixtral-8x
                     logger.error(f"API error: {response.status}, {error_text}")
                     return "Sorry, I'm having trouble summarizing that content right now. Please try again later."
     except Exception as e:
-        logger.error(f"Error calling Fireworks API: {e}")
+        logger.exception(f"Error calling Fireworks API: {e}")
+        return "Sorry, I encountered an error while summarizing your content. Please try again later."
         return "Sorry, I encountered an error while summarizing your content. Please try again later."
