@@ -1,8 +1,8 @@
+![1DFB164B-F97E-4BA8-8D88-B8B0A1CFD52F](https://github.com/user-attachments/assets/54fa9414-e0d4-4dd9-8fd7-00ac5ef1c279)
 # ROMA Droid Echo
+![ROMA Droid Echo](https://img.shields.io/badge/ROMA-Droid%20Echo-blue) <br/>
+A Telegram bot that connects users to the Sentient ecosystem, providing a minimalist text AI interface for chatting and summarizing content related to ROMA (Recursive Open Meta Agent).<br/>
 
-![ROMA Droid Echo](https://img.shields.io/badge/ROMA-Droid%20Echo-blue)
-
-A Telegram bot that connects users to the Sentient ecosystem, providing a minimalist text AI interface for chatting and summarizing content related to ROMA (Recursive Open Meta Agent).
 
 ## 🤖 About
 
@@ -108,7 +108,7 @@ ROMA-Driod/
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 🙏 Acknowledgements
+## Acknowledgements
 
 - [Sentient AGI](https://www.sentient.xyz/) for creating ROMA
 - [python-telegram-bot](https://github.com/python-telegram-bot/python-telegram-bot) library
